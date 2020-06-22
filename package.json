@@ -4,9 +4,11 @@
   "description": "chat app course socket io",
   "main": "index.js",
   "scripts": {
-    "start": "babel-node src/index.js",
-    "dev": "babel-node src/index.js"
-
+    "dev": "babel-node src/index.js",
+    "clean": "rm -rf build && mkdir build",
+    "build-babel": "babel -d ./build ./src -s",
+    "build": "npm run clean && npm run build-babel",
+    "start": "npm run build && node ./build/index.js"
   },
   "author": "",
   "license": "ISC",
